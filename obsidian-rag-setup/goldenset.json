@@ -1,0 +1,60 @@
+{
+  "version": "2026-06-12",
+  "k": 5,
+  "questions": [
+    {
+      "id": "EXAMPLE-F01",
+      "type": "fact",
+      "question": "내 노트에서 RAG의 핵심 구성요소는 무엇이라고 정리했나?",
+      "ground_truth": "검색(retrieval)과 생성(generation). 벡터 검색으로 관련 문서를 찾아 LLM에 컨텍스트로 제공한다.",
+      "expected_notes": ["RAG 개념정리"]
+    },
+    {"id": "F02", "type": "fact", "question": "", "ground_truth": "", "expected_notes": []},
+    {"id": "F03", "type": "fact", "question": "", "ground_truth": "", "expected_notes": []},
+    {"id": "F04", "type": "fact", "question": "", "ground_truth": "", "expected_notes": []},
+    {"id": "F05", "type": "fact", "question": "", "ground_truth": "", "expected_notes": []},
+    {"id": "F06", "type": "fact", "question": "", "ground_truth": "", "expected_notes": []},
+    {"id": "F07", "type": "fact", "question": "", "ground_truth": "", "expected_notes": []},
+    {"id": "F08", "type": "fact", "question": "", "ground_truth": "", "expected_notes": []},
+    {"id": "F09", "type": "fact", "question": "", "ground_truth": "", "expected_notes": []},
+    {"id": "F10", "type": "fact", "question": "", "ground_truth": "", "expected_notes": []},
+    {
+      "id": "EXAMPLE-S01",
+      "type": "summary",
+      "question": "Zettelkasten 노트 작성 원칙을 요약해줘.",
+      "ground_truth": "노트 하나에 아이디어 하나만 담고, 내 언어로 다시 쓰고, 다른 노트와 링크로 연결한다.",
+      "expected_notes": ["Zettelkasten 원칙"]
+    },
+    {"id": "S02", "type": "summary", "question": "", "ground_truth": "", "expected_notes": []},
+    {"id": "S03", "type": "summary", "question": "", "ground_truth": "", "expected_notes": []},
+    {"id": "S04", "type": "summary", "question": "", "ground_truth": "", "expected_notes": []},
+    {"id": "S05", "type": "summary", "question": "", "ground_truth": "", "expected_notes": []},
+    {"id": "S06", "type": "summary", "question": "", "ground_truth": "", "expected_notes": []},
+    {"id": "S07", "type": "summary", "question": "", "ground_truth": "", "expected_notes": []},
+    {"id": "S08", "type": "summary", "question": "", "ground_truth": "", "expected_notes": []},
+    {
+      "id": "EXAMPLE-K01",
+      "type": "keyword",
+      "question": "KURE-v1 임베딩 모델에 대해 어떤 내용을 적어뒀나?",
+      "ground_truth": "고려대 NLP&AI 연구실의 한국어 특화 임베딩 모델로, 한국어 리트리벌 벤치마크에서 bge-m3보다 높은 점수를 기록했다고 메모했다.",
+      "expected_notes": ["임베딩 모델 비교"]
+    },
+    {"id": "K02", "type": "keyword", "question": "", "ground_truth": "", "expected_notes": []},
+    {"id": "K03", "type": "keyword", "question": "", "ground_truth": "", "expected_notes": []},
+    {"id": "K04", "type": "keyword", "question": "", "ground_truth": "", "expected_notes": []},
+    {"id": "K05", "type": "keyword", "question": "", "ground_truth": "", "expected_notes": []},
+    {"id": "K06", "type": "keyword", "question": "", "ground_truth": "", "expected_notes": []},
+    {
+      "id": "EXAMPLE-M01",
+      "type": "multihop",
+      "question": "내 RAG 파이프라인이 쓰는 임베딩 모델은 무엇이고, 그 모델을 선택한 이유는 무엇인가?",
+      "ground_truth": "파이프라인은 KURE-v1을 사용한다. 한국어 노트가 대부분이라 한국어 특화 모델이 리트리벌 정확도에서 유리하다고 판단해 선택했다.",
+      "expected_notes": ["RAG 파이프라인 설계", "임베딩 모델 비교"]
+    },
+    {"id": "M02", "type": "multihop", "question": "", "ground_truth": "", "expected_notes": []},
+    {"id": "M03", "type": "multihop", "question": "", "ground_truth": "", "expected_notes": []},
+    {"id": "M04", "type": "multihop", "question": "", "ground_truth": "", "expected_notes": []},
+    {"id": "M05", "type": "multihop", "question": "", "ground_truth": "", "expected_notes": []},
+    {"id": "M06", "type": "multihop", "question": "", "ground_truth": "", "expected_notes": []}
+  ]
+}

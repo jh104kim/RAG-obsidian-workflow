@@ -33,6 +33,8 @@ P4. Obsidian Wiki Graph 활용 (링크 그래프 = 지식 그래프)
   - [x] 실행 코드 패키지 추출 완료 → `리서치\obsidian-rag-setup\` (py 6개 구문 검증 통과, setup.ps1·README 포함)
   - [ ] 운용 PC(별도 vault 환경)에서: `obsidian-rag-setup` 복사 → `setup.ps1` → **VAULT_PATH를 그 PC의 실제 vault 경로로** 수정 → `ingest.py` → `ask_v3.py`
 - [ ] 골든셋 질문 30개 작성 + RAGAS 베이스라인 측정
+  - [x] 틀 완성: `goldenset.json`(30문항, fact/summary/keyword/multihop) + `evaluate.py`(Hit@k·MRR·nDCG, `--hop`·`--ragas` 플래그) (2026-06-12)
+  - [ ] 운용 PC에서: 빈 문항을 본인 vault 기반으로 채우고 `python evaluate.py`로 베이스라인 측정 → 결과를 진행 로그에 기록
 
 ## Phase 1 — 비정형 데이터 → Obsidian Wiki화
 
@@ -115,3 +117,5 @@ P4. Obsidian Wiki Graph 활용 (링크 그래프 = 지식 그래프)
 - 2026-06-12 | P0 | critic 라운드 3 **APPROVED** (치명 0). 잔여 지적 3건 추가 반영: ollama 0.4.x 허위 오류 주장 3곳 교정·트러블슈팅 행 삭제, parse_frontmatter 블록 리스트 tags 지원(기능 테스트 통과), graphrag CLI 도입 시점 0.9.0으로 교정 | P0: 가이드 따라 RAG 실제 구축 (본인 PC에서 Claude Code로 "이어서 해줘")
 - 2026-06-12 | P0 | 실행 코드 패키지 추출 (`obsidian-rag-setup\`: requirements·setup.ps1·ingest·ask_v1~v3·eval_rag·README, §10.1은 USE_CONTEXTUAL_RETRIEVAL 플래그로 게이트) | P0: PC에서 setup.ps1 실행 → ingest → ask_v3 동작 확인 → 골든셋 작성
 - 2026-06-12 | P0 | 운용 환경 확정: 별도 PC의 다른 Obsidian vault에서 사용 — SETUP·CLAUDE.md·README에 VAULT_PATH 주의 반영, git 푸시 준비 | P0: 운용 PC에서 git clone/pull 후 setup.ps1 실행
+- 2026-06-12 | P0 | GitHub 푸시 완료 (jh104kim/RAG-obsidian-workflow) | P0: 운용 PC 구축 / P0-③ 골든셋 틀 / P1 리서치 중 선택
+- 2026-06-12 | P0 | 골든셋 틀 완성 — goldenset.json(30문항 틀+유형별 예시) + evaluate.py(ask_v3 import 재사용, Hit@k/MRR/nDCG·--hop·--ragas, eval_results 이력 저장), README 갱신 | P0: 운용 PC에서 구축 + 골든셋 채우기 + 베이스라인 측정. 이후 P1 리서치

@@ -16,7 +16,30 @@
 | 4 | (선택) `python check_vault.py` | `표준 키 누락 0건` 이면 통과. 0이 아니어도 다음 진행 가능 (§4.3) |
 | 5 | `python ingest.py` | `노트 N개 → 청크 M개` 출력, 마지막 줄 `완료: M개 청크 인덱싱` (M > 0), 폴더에 `chroma_db\`·`chunks.json`·`graph.json` 생성 (§5.1) |
 | 6 | `python ask_v3.py` | 노트 근거 한국어 답변 + `참고:` 출력. `[사용된 청크]`에 직접 검색된 노트 외 연결 이웃 노트가 함께 보이면 통과 (§7) |
-| 7 | `eval_rag.py`의 `EVAL_SET`을 본인 vault 기반 10~20문항으로 교체 → `python eval_rag.py` | faithfulness / answer_relevancy / context_precision / context_recall 4개 숫자 출력 → 기록 (§8) |
+| 7 | `goldenset.json`의 빈 문항을 본인 vault 기반으로 채움 → `python evaluate.py` | 유형별/전체 Hit@k·MRR·nDCG@k 표 + 실패 질문 id 출력, `eval_results\` 에 결과 JSON 저장 (LLM 불필요) |
+| 8 | (선택) `python evaluate.py --ragas` | faithfulness / answer_relevancy / context_precision / context_recall 4개 숫자 출력 → 기록 (§8). 기존 `eval_rag.py` 단독 실행도 가능 |
+
+## 골든셋 평가 (goldenset.json + evaluate.py)
+
+**goldenset.json 작성 요령** (30문항 틀 — 유형별 첫 항목이 작성 예시, 작성 후 `EXAMPLE-` 문항은 삭제):
+
+| 유형 | 문항 수 | 의도 |
+|---|---|---|
+| fact | 10 | 단일 노트의 사실 조회 |
+| summary | 8 | 한 주제의 요약/설명 |
+| keyword | 6 | 고유명사·정확 매칭 — BM25 강점 검증 |
+| multihop | 6 | 2개 이상 노트 연결 — 위키링크 확장 검증 |
+
+- `expected_notes`: 정답 근거가 들어있는 노트의 **파일명(확장자 제외)** 리스트. 리트리벌 적중 판정 기준이므로 정확히 적을 것 (multihop은 2개 이상).
+- `ground_truth`: 정답 문장 — `--ragas` 측정에만 사용. 비워두면 해당 문항은 RAGAS에서 제외.
+- question이 빈 문항과 `EXAMPLE-` 문항은 측정에서 자동 제외(건수 보고됨).
+
+**실행**:
+
+- `python evaluate.py` — 리트리벌 지표만 (Hit@k/MRR/nDCG@k, LLM 불필요). 실패 질문(Hit=0) id 목록이 P3 진입 판단 자료.
+- `python evaluate.py --hop` — 위키링크 1-hop 확장 포함 판정 (확장 효과 A/B 비교).
+- `python evaluate.py --ragas` — 답변 생성 후 RAGAS 4지표 추가 (Ollama 필요).
+- 결과는 매회 `eval_results\YYYY-MM-DD_HHMM.json`으로 저장 — 인덱싱/설정 변경 전후 비교에 사용.
 
 ## 단계별 비교용 (선택)
 
