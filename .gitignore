@@ -1,0 +1,13 @@
+# Claude Code 로컬 설정 (PC별로 다를 수 있음 — 모든 PC에서 동일하게 쓰려면 이 줄 삭제)
+.claude/settings.local.json
+
+# Python / RAG 산출물 (코드 패키지를 이 폴더에서 직접 실행한 경우)
+__pycache__/
+.venv/
+chroma_db/
+chunks.json
+graph.json
+
+# OS
+Thumbs.db
+.DS_Store

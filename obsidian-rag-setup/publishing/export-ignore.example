@@ -1,0 +1,5 @@
+# vault 최상위에 ".export-ignore" 라는 이름으로 복사 (gitignore 문법, 비공개 폴더를 모두 나열 — 가이드 §12.1)
+일기/
+private/
+templates/
+*.excalidraw.md
